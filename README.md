@@ -1,1 +1,1 @@
-# msa-rms-service-user
+# msa-rms-user
