@@ -2,9 +2,9 @@ package io.extact.msa.rms.user.webapi;
 
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.Path;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Path;
 
 import io.extact.msa.rms.platform.core.validate.ValidateParam;
 import io.extact.msa.rms.platform.fw.exception.BusinessFlowException;

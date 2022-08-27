@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.net.URI;
 
-import javax.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.Response.Status;
 
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.junit.jupiter.api.BeforeEach;

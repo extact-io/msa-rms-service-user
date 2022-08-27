@@ -3,7 +3,7 @@ package io.extact.msa.rms.user.it.service;
 import static io.extact.msa.rms.test.assertj.ToStringAssert.*;
 import static org.assertj.core.api.Assertions.*;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
