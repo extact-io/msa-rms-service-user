@@ -42,6 +42,10 @@ javax.sql.DataSource:
 #----------------------------------
 main.manifest.jar: msa-rms-service-user\.jar$
 
+healthCheck:
+  otherChecks:
+    - io.extact.msa.rms.platform.core.health.SimpleReadnessCheck
+
 persistence:
   apiType: jpa
 
