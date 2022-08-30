@@ -44,7 +44,8 @@ main.manifest.jar: msa-rms-service-user\.jar$
 
 healthCheck:
   otherChecks:
-    - io.extact.msa.rms.platform.core.health.SimpleReadnessCheck
+    - io.extact.msa.rms.platform.core.health.DbReadnessCheck
+  dbReadnessCheck.pingSql: "SELECT 1"
 
 persistence:
   apiType: jpa
