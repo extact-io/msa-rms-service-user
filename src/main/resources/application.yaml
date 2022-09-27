@@ -47,6 +47,9 @@ healthCheck:
     - io.extact.msa.rms.platform.core.health.DbReadnessCheck
   dbReadnessCheck.pingSql: "SELECT 1"
 
+openapi.info:
+  title: ユーザサービス公開API
+
 persistence:
   apiType: jpa
 
