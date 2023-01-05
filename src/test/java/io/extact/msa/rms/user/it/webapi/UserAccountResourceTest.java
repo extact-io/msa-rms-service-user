@@ -21,13 +21,16 @@ import io.extact.msa.rms.platform.fw.domain.vo.UserType;
 import io.extact.msa.rms.platform.fw.exception.BusinessFlowException;
 import io.extact.msa.rms.platform.fw.exception.BusinessFlowException.CauseType;
 import io.extact.msa.rms.test.junit5.JulToSLF4DelegateExtension;
+import io.extact.msa.rms.test.utils.ClearOpenTelemetryContextCdiExtension;
 import io.extact.msa.rms.user.webapi.UserAccountResource;
 import io.extact.msa.rms.user.webapi.dto.AddUserAccountEventDto;
 import io.extact.msa.rms.user.webapi.dto.UserAccountResourceDto;
 import io.helidon.microprofile.tests.junit5.AddConfig;
+import io.helidon.microprofile.tests.junit5.AddExtension;
 import io.helidon.microprofile.tests.junit5.HelidonTest;
 
 @HelidonTest
+@AddExtension(ClearOpenTelemetryContextCdiExtension.class)
 @AddConfig(key = "server.port", value = "7001")
 @ExtendWith(JulToSLF4DelegateExtension.class)
 @TestMethodOrder(OrderAnnotation.class)

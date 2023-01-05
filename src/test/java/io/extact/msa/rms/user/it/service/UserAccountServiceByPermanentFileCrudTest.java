@@ -6,7 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import io.extact.msa.rms.platform.fw.persistence.file.FileUtils;
 import io.extact.msa.rms.test.junit5.JulToSLF4DelegateExtension;
+import io.extact.msa.rms.test.utils.ClearOpenTelemetryContextCdiExtension;
 import io.helidon.microprofile.tests.junit5.AddConfig;
+import io.helidon.microprofile.tests.junit5.AddExtension;
 import io.helidon.microprofile.tests.junit5.HelidonTest;
 
 /**
@@ -20,6 +22,7 @@ import io.helidon.microprofile.tests.junit5.HelidonTest;
  */
 @DisabledIfEnvironmentVariable(named = "RMS_CI_ENV", matches = "github")
 @HelidonTest
+@AddExtension(ClearOpenTelemetryContextCdiExtension.class)
 @AddConfig(key = "persistence.apiType", value = "file")
 @AddConfig(key = "csv.type", value = "permanent")
 @AddConfig(key = "csv.permanent.directory", value = UserAccountServiceByPermanentFileCrudTest.TEST_PERMANENT_DIR)
