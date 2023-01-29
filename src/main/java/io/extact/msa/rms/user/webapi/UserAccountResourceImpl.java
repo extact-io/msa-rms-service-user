@@ -13,7 +13,7 @@ import io.extact.msa.rms.user.service.UserAccountService;
 import io.extact.msa.rms.user.webapi.dto.AddUserAccountEventDto;
 import io.extact.msa.rms.user.webapi.dto.UserAccountResourceDto;
 
-@Path("/users")
+@Path("users")
 @ApplicationScoped
 @ValidateParam
 public class UserAccountResourceImpl implements UserAccountResource {

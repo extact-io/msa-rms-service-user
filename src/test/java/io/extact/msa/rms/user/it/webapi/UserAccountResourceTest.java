@@ -42,7 +42,7 @@ class UserAccountResourceTest {
     @BeforeEach
     void setup() throws Exception {
         this.userResource = RestClientBuilder.newBuilder()
-                .baseUri(new URI("http://localhost:7001/users"))
+                .baseUri(new URI("http://localhost:7001/api/users"))
                 .register(RmsTypeParameterFeature.class)
                 .build(UserAccountResource.class);
     }

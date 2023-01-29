@@ -35,6 +35,7 @@ public interface UserAccountResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    //--- for OpenAPI
     @Operation(operationId = "getAll", summary = "ユーザの全件を取得する", description = "登録されているすべてのユーザを取得する")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @APIResponse(responseCode = "200", description = "検索結果", content = @Content(mediaType = "application/json", schema = @Schema(type = SchemaType.ARRAY, implementation = UserAccountResourceDto.class)))
@@ -43,6 +44,7 @@ public interface UserAccountResource {
     @GET
     @Path("/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
+    //--- for OpenAPI
     @Operation(operationId = "get", summary = "ユーザを取得する", description = "指定されたユーザを取得する。なお、該当なしはnullに相当する204(NoContent)を返す")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @Parameter(name = "userId", description = "ユーザID", in = ParameterIn.PATH, required = true)
@@ -55,6 +57,7 @@ public interface UserAccountResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    //--- for OpenAPI
     @Operation(operationId = "add", summary = "ユーザを登録する", description = "ログインIDが既に使われている場合は409を返す")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @Parameter(name = "dto", description = "登録内容", required = true, content = @Content(mediaType = "application/json", schema = @Schema(implementation = AddUserAccountEventDto.class)))
@@ -67,6 +70,7 @@ public interface UserAccountResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    //--- for OpenAPI
     @Operation(operationId = "update", summary = "ユーザを更新する", description = "依頼されたユーザを更新する")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @Parameter(name = "dto", description = "更新内容", required = true, content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserAccountResourceDto.class)))
@@ -78,6 +82,7 @@ public interface UserAccountResource {
 
     @DELETE
     @Path("/{userId}")
+    //--- for OpenAPI
     @Operation(operationId = "deleteUserAccount", summary = "ユーザを削除する", description = "削除対象のユーザを参照する予約が存在する場合は削除は行わずエラーにする")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @Parameter(name = "userAccountId", description = "ユーザID", in = ParameterIn.PATH, required = true)
@@ -91,6 +96,7 @@ public interface UserAccountResource {
     @GET
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
+    //--- for OpenAPI
     @Operation(operationId = "authenticateForTest", summary = "ユーザ認証を行う（curlのテスト用）", description = "ログイン名とパスワードに一致するユーザを取得する")
     @Parameter(name = "loginId", description = "ログインId", required = true, schema = @Schema(implementation = String.class, minLength = 5, maxLength = 10))
     @Parameter(name = "password", description = "パスワード", required = true, schema = @Schema(implementation = String.class, minLength = 5, maxLength = 10))
@@ -105,6 +111,7 @@ public interface UserAccountResource {
     @GET
     @Path("/exists/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
+    //--- for OpenAPI
     @Operation(operationId = "exists", summary = "指定されたユーザが存在するかを返す")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @Parameter(name = "userId", description = "レンタル品ID", in = ParameterIn.PATH, required = true)

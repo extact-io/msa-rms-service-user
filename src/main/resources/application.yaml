@@ -44,8 +44,8 @@ main.manifest.jar: msa-rms-service-user\.jar$
 
 healthCheck:
   otherChecks:
-    - io.extact.msa.rms.platform.core.health.DbReadnessCheck
-  dbReadnessCheck.pingSql: "SELECT 1"
+    - io.extact.msa.rms.platform.core.health.DbReadinessCheck
+  dbReadinessCheck.pingSql: "SELECT 1"
 
 openapi.info:
   title: ユーザサービス公開API
