@@ -1,8 +1,10 @@
+config_ordinal: 201
 #----------------------------------
 # -service.jar Test Configurations
 #----------------------------------
-persistence:
-  apiType: jpa
+rms:
+  persistence:
+    apiType: jpa
 
 # DB Conneciton for Unit Test
 test.db.connection:

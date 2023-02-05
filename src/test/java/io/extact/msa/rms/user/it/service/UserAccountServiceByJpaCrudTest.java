@@ -10,7 +10,7 @@ import io.helidon.microprofile.tests.junit5.HelidonTest;
 
 @HelidonTest
 @AddExtension(ClearOpenTelemetryContextCdiExtension.class)
-@AddConfig(key = "persistence.apiType", value = "jpa")
+@AddConfig(key = "rms.persistence.apiType", value = "jpa")
 @ExtendWith(JulToSLF4DelegateExtension.class)
 class UserAccountServiceByJpaCrudTest extends AbstractUserAccountServiceCrudTest {
 }

@@ -23,9 +23,9 @@ import io.helidon.microprofile.tests.junit5.HelidonTest;
 @DisabledIfEnvironmentVariable(named = "RMS_CI_ENV", matches = "github")
 @HelidonTest
 @AddExtension(ClearOpenTelemetryContextCdiExtension.class)
-@AddConfig(key = "persistence.apiType", value = "file")
-@AddConfig(key = "csv.type", value = "permanent")
-@AddConfig(key = "csv.permanent.directory", value = UserAccountServiceByPermanentFileCrudTest.TEST_PERMANENT_DIR)
+@AddConfig(key = "rms.persistence.apiType", value = "file")
+@AddConfig(key = "rms.persistence.csv.type", value = "permanent")
+@AddConfig(key = "rms.persistence.csv.permanent.directory", value = UserAccountServiceByPermanentFileCrudTest.TEST_PERMANENT_DIR)
 @ExtendWith(JulToSLF4DelegateExtension.class)
 class UserAccountServiceByPermanentFileCrudTest extends AbstractUserAccountServiceCrudTest {
 

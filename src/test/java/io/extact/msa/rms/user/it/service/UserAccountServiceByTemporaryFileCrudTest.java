@@ -10,8 +10,8 @@ import io.helidon.microprofile.tests.junit5.HelidonTest;
 
 @HelidonTest
 @AddExtension(ClearOpenTelemetryContextCdiExtension.class)
-@AddConfig(key = "persistence.apiType", value = "file")
-@AddConfig(key = "csv.type", value = "temporary")
+@AddConfig(key = "rms.persistence.apiType", value = "file")
+@AddConfig(key = "rms.persistence.csv.type", value = "temporary")
 @ExtendWith(JulToSLF4DelegateExtension.class)
 class UserAccountServiceByTemporaryFileCrudTest extends AbstractUserAccountServiceCrudTest {
 }
