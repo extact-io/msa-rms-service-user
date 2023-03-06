@@ -27,7 +27,7 @@
 
 	<properties>
 		<mainClass>io.extact.msa.rms.user.webapi.UserAccountWebApiMain</mainClass>
-		<docker.image.name>msa-service-user</docker.image.name>
+		<image.name>msa-service-user</image.name>
 	</properties>
 
 	<dependencies>
