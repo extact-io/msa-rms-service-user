@@ -8,7 +8,12 @@ on:
         required: true
         type: boolean
         default: false
-
+  workflow_call:
+    inputs:
+      skip-test:
+        required: true
+        type: boolean
+      
 jobs:
   execute:
     uses: extact-io/msa-rms-parent/.github/workflows/deploy-job.yml@main
@@ -19,5 +24,6 @@ jobs:
       deploy-type: ecs
       ecs-taskname: user-service-task
       ecs-containername: user-service-container
+      image-name: extact-io/msa-service-user
       ecs-servicename: user-service
     secrets: inherit
