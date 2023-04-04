@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       skip-test:
+        description: skip step?
         required: true
         type: boolean
         default: false
@@ -15,15 +16,21 @@ on:
         type: boolean
       
 jobs:
-  execute:
-    uses: extact-io/msa-rms-parent/.github/workflows/deploy-job.yml@main
+  build:
+    uses: extact-io/msa-rms-parent/.github/workflows/build-to-repo-job.yml@main
     with:
       repo: ${{ github.repository }}
+      aws-appname: user-service
       skip-test: ${{ inputs.skip-test }}
       with-image: true
-      deploy-type: ecs
+    secrets: inherit
+  deploy:
+    needs: build
+    uses: extact-io/msa-rms-parent/.github/workflows/deploy-to-ecs-job.yml@main
+    with:
+      repo: ${{ github.repository }}
+      aws-appname: user-service
       ecs-taskname: user-service-task
       ecs-containername: user-service-container
       image-name: extact-io/msa-service-user
-      ecs-servicename: user-service
     secrets: inherit
