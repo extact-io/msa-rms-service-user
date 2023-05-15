@@ -39,6 +39,8 @@ public interface UserAccountResource {
     @Operation(operationId = "getAll", summary = "ユーザの全件を取得する", description = "登録されているすべてのユーザを取得する")
     @SecurityRequirements({@SecurityRequirement(name = "RmsHeaderAuthn"), @SecurityRequirement(name = "RmsHeaderAuthz")})
     @APIResponse(responseCode = "200", description = "検索結果", content = @Content(mediaType = "application/json", schema = @Schema(type = SchemaType.ARRAY, implementation = UserAccountResourceDto.class)))
+    @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     List<UserAccountResourceDto> getAll();
 
     @GET
@@ -52,6 +54,7 @@ public interface UserAccountResource {
     @APIResponse(responseCode = "204", ref = "#/components/responses/NoContent")
     @APIResponse(responseCode = "400", ref = "#/components/responses/ParameterError")
     @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     UserAccountResourceDto get(@RmsId @PathParam("userId") Integer userAccountId);
 
     @POST
@@ -65,6 +68,7 @@ public interface UserAccountResource {
     @APIResponse(responseCode = "400", ref = "#/components/responses/ParameterError")
     @APIResponse(responseCode = "409", ref = "#/components/responses/DataDupricate")
     @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     UserAccountResourceDto add(@Valid AddUserAccountEventDto dto) throws BusinessFlowException;
 
     @PUT
@@ -78,6 +82,7 @@ public interface UserAccountResource {
     @APIResponse(responseCode = "400", ref = "#/components/responses/ParameterError")
     @APIResponse(responseCode = "404", ref = "#/components/responses/UnknownData")
     @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     UserAccountResourceDto update(@Valid UserAccountResourceDto dto);
 
     @DELETE
@@ -91,6 +96,7 @@ public interface UserAccountResource {
     @APIResponse(responseCode = "404", ref = "#/components/responses/UnknownData")
     @APIResponse(responseCode = "409", ref = "#/components/responses/DataRefered")
     @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     void delete(@RmsId @PathParam("userId") Integer userAccountId) throws BusinessFlowException;
 
     @GET
@@ -104,6 +110,7 @@ public interface UserAccountResource {
     @APIResponse(responseCode = "400", ref = "#/components/responses/ParameterError")
     @APIResponse(responseCode = "404", ref = "#/components/responses/NotFound")
     @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     UserAccountResourceDto authenticate(
             @LoginId @QueryParam("loginId") String loginId,
             @Passowrd @QueryParam("password") String password);
@@ -118,5 +125,6 @@ public interface UserAccountResource {
     @APIResponse(responseCode = "200", description = "ある場合はtrueを返す", content = @Content(mediaType = "application/json", schema = @Schema(type = SchemaType.BOOLEAN, implementation = Boolean.class)))
     @APIResponse(responseCode = "400", ref = "#/components/responses/ParameterError")
     @APIResponse(responseCode = "500", ref = "#/components/responses/ServerError")
+    @APIResponse(responseCode = "503", ref = "#/components/responses/ServiceUnavailable")
     boolean exists(@RmsId @PathParam("userId") Integer userId);
 }

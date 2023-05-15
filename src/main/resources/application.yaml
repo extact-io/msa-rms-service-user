@@ -22,7 +22,6 @@ server:
   port: ${env.rms.server.port}
   access-log:
     format: "%t %h %r %s %b %D"
-
 javax.sql.DataSource:
   rmsDataSource:
     dataSourceClassName: org.h2.jdbcx.JdbcDataSource
@@ -30,6 +29,8 @@ javax.sql.DataSource:
       url: jdbc:h2:mem:rms;INIT=RUNSCRIPT FROM '${env.rms.h2.script}'
       user: ${env.rms.h2.user}
       password: ${env.rms.h2.password:""}
+tracing:
+  service: UserService
 
 #----------------------------------
 # Applications Configurations
